@@ -1,0 +1,451 @@
+@font-face {
+    font-family: 'PressStart';
+    src: url('https://fonts.cdnfonts.com/s/32770/PressStart2P-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --color-fondo: #000000;
+    --color-texto: #00ff00; 
+    --color-acento1: #ff00ff; 
+    --color-acento2: #00ffff; 
+    --border-width: 4px;
+}
+
+body {
+    font-family: 'PressStart', monospace;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+    text-shadow: 0 0 5px var(--color-texto);
+    padding-bottom: 70px;
+    box-sizing: border-box;
+}
+
+header {
+    padding: 20px 0;
+    text-align: center;
+    background-color: #1a1a1a;
+    border-bottom: var(--border-width) solid var(--color-acento1);
+    margin-bottom: 30px;
+}
+
+.monitor-border {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 10px;
+    border: var(--border-width) solid var(--color-acento2);
+    box-shadow: 0 0 20px var(--color-acento2), inset 0 0 10px var(--color-acento2);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8em;
+    animation: scanline 5s linear infinite;
+    letter-spacing: 2px;
+}
+
+header p {
+    font-size: 0.8em;
+    margin-top: 5px;
+    color: var(--color-acento1);
+}
+
+.glitch {
+    position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 var(--color-acento1);
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 2s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 var(--color-acento2);
+    clip: rect(85px, 450px, 80px, 0);
+    animation: glitch-anim 3s infinite linear alternate;
+}
+
+@keyframes glitch-anim {
+    0% {
+        clip: rect(85px, 9999px, 50px, 0);
+        transform: skew(0.5deg);
+    }
+    10% {
+        clip: rect(10px, 9999px, 80px, 0);
+        transform: skew(0.5deg);
+    }
+    100% {
+        clip: rect(20px, 9999px, 90px, 0);
+        transform: skew(-0.5deg);
+    }
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 10px 0;
+    border-top: 2px dashed var(--color-acento2);
+    border-bottom: 2px dashed var(--color-acento2);
+}
+
+.menu-item {
+    color: var(--color-acento2);
+    text-decoration: none;
+    padding: 8px 15px;
+    margin: 5px;
+    border: 2px solid var(--color-acento2);
+    border-radius: 5px;
+    font-size: 0.7em;
+    text-align: center;
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.menu-item:hover {
+    background-color: var(--color-acento2);
+    color: var(--color-fondo);
+    box-shadow: 0 0 15px var(--color-acento2);
+}
+
+.pulse-effect {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 5px var(--color-acento2); }
+    50% { box-shadow: 0 0 15px var(--color-acento2); }
+    100% { box-shadow: 0 0 5px var(--color-acento2); }
+}
+
+main {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.topic-box {
+    background-color: #111;
+    padding: 25px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    border: var(--border-width) solid var(--color-acento1);
+    box-shadow: 0 0 10px var(--color-acento1);
+    animation: flicker 0.15s infinite alternate;
+}
+
+@keyframes flicker {
+    0% { opacity: 1; }
+    4% { opacity: 0.95; }
+    8% { opacity: 1; }
+    13% { opacity: 0.9; }
+    100% { opacity: 1; }
+}
+
+.section-title {
+    color: var(--color-acento1);
+    text-shadow: 0 0 8px var(--color-acento1);
+    border-bottom: 2px solid var(--color-acento2);
+    padding-bottom: 10px;
+    margin-top: 0;
+    font-size: 1.4em;
+}
+
+.retro-icon {
+    font-size: 1.2em;
+    margin-left: 10px;
+    animation: spin 3s linear infinite;
+    display: inline-block;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.content-detail h3 {
+    color: var(--color-acento2);
+    margin-top: 15px;
+    font-size: 1em;
+}
+
+p {
+    margin-bottom: 1em;
+    font-size: 0.8em;
+}
+
+strong {
+    color: var(--color-acento2);
+}
+
+ul {
+    list-style: square;
+    padding-left: 20px;
+    font-size: 0.8em;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+
+.code-area {
+    margin-top: 30px;
+    border-top: 1px dashed var(--color-texto);
+    padding-top: 20px;
+}
+
+.code-area h3 {
+    font-size: 1em;
+    margin-bottom: 10px;
+    color: var(--color-texto);
+}
+
+.code-label {
+    background-color: var(--color-acento1);
+    color: var(--color-fondo);
+    padding: 2px 5px;
+    font-size: 0.7em;
+    border-radius: 2px;
+}
+
+.code-area pre {
+    background-color: #0d0d0d;
+    border: 1px solid var(--color-acento2);
+    padding: 15px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 0.8em;
+    text-shadow: none;
+    box-shadow: inset 0 0 5px var(--color-acento2);
+}
+
+.screenshot-placeholder {
+    width: 100%;
+    height: 250px; 
+    background-color: #333;
+    border: 2px dashed var(--color-acento1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-acento1);
+    font-size: 0.8em;
+    margin-top: 10px;
+}
+
+.code-description {
+    font-size: 0.7em;
+    color: var(--color-acento2);
+    margin-top: 10px;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 15px 0;
+    background-color: #1a1a1a;
+    color: var(--color-texto);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.5);
+}
+
+footer p {
+    margin: 5px 0;
+    font-size: 0.7em;
+}
+
+footer button {
+    font-family: 'PressStart', monospace;
+    background-color: var(--color-acento1);
+    color: var(--color-fondo);
+    border: none;
+    padding: 8px 15px;
+    margin-top: 5px;
+    font-size: 0.8em;
+    cursor: pointer;
+    box-shadow: 0 0 10px var(--color-acento1);
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+footer button:hover {
+    box-shadow: 0 0 15px var(--color-acento1), 0 0 25px var(--color-acento1);
+    transform: scale(1.05);
+}
+
+body.modo-claro {
+    --color-fondo: #ffffff;
+    --color-texto: #008000;
+    --color-acento1: #ff0000;
+    --color-acento2: #0000ff;
+    text-shadow: none;
+}
+
+body.modo-claro header {
+    background-color: #ccc;
+    color: #000;
+}
+
+body.modo-claro section {
+    background-color: #fff;
+    border: 4px solid #000;
+    box-shadow: none;
+    animation: none;
+}
+
+body.modo-claro .section-title, body.modo-claro h2 {
+    color: var(--color-acento1);
+    text-shadow: none;
+}
+
+/* --- Estilos para las imágenes de las capturas --- */
+.code-area img.uploaded-screenshot {
+    max-width: 100%; /* Asegura que la imagen no se desborde del contenedor */
+    height: auto;    /* Mantiene la proporción de la imagen */
+    display: block;  /* Para centrarla o manejar márgenes más fácilmente */
+    margin: 15px auto; /* Centra la imagen y añade espacio arriba/abajo */
+    border: 2px solid var(--accent-color); /* Borde retro */
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5); /* Sombra brillante retro */
+    width: clamp(250px, 70%, 500px); /* Hace la imagen responsive y con un tamaño máximo */
+    /*
+        clamp(min, preferred, max)
+        min-width: 250px
+        preferred-width: 70% del ancho del padre
+        max-width: 500px
+    */
+    transition: transform 0.2s ease-in-out; /* Animación al pasar el ratón */
+}
+
+.code-area img.uploaded-screenshot:hover {
+    transform: scale(1.02); /* Un ligero zoom al pasar el ratón */
+}
+
+/* Opcional: Si quieres un estilo diferente para el placeholder, aunque ya no lo usaremos si pones la img directamente */
+.screenshot-placeholder {
+    background-color: #222;
+    border: 2px dashed var(--accent-color);
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    font-size: 0.9em;
+    margin: 15px 0;
+    padding: 10px;
+}
+
+@media (max-width: 600px) {
+    
+    body {
+        padding-bottom: 70px;
+    }
+    
+    header {
+        padding: 10px 0;
+    }
+    
+    .monitor-border {
+        margin: 0 10px;
+        padding: 5px;
+    }
+
+    header h1 {
+        font-size: 1.2em;
+    }
+    
+    header p {
+        font-size: 0.7em;
+    }
+
+    #menu-navegacion {
+        flex-direction: column;
+        align-items: center;
+        margin: 15px auto;
+    }
+
+    .menu-item {
+        font-size: 0.6em;
+        padding: 6px 10px;
+        margin: 5px 0;
+        width: 80%;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    .topic-box {
+        padding: 15px;
+    }
+
+    .section-title {
+        font-size: 1.1em;
+    }
+
+    .content-detail p, .content-detail ul, .content-detail li {
+        font-size: 0.75em;
+    }
+    
+    .content-detail h3 {
+        font-size: 0.9em;
+    }
+
+    .code-area pre {
+        font-size: 0.7em;
+        padding: 10px;
+    }
+    
+    .code-area img.uploaded-screenshot {
+        width: 100%;
+        max-width: none;
+        height: auto;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+    
+    header h1 {
+        font-size: 1.5em;
+    }
+    
+    #menu-navegacion {
+        padding: 10px;
+    }
+    
+    .menu-item {
+        font-size: 0.75em;
+    }
+    
+    main {
+        max-width: 95%;
+    }
+
+    .code-area pre {
+        font-size: 0.8em;
+    }
+    
+    .code-area img.uploaded-screenshot {
+        width: 80%;
+        max-width: 450px;
+    }
+}
