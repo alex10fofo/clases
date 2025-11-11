@@ -9,19 +9,19 @@
 <body>
     <header>
         <div class="monitor-border">
-            <h1 class="glitch" data-text="POO ARCADE">POO ARCADE: Conceptos Fundamentales</h1>
+            <h1 class="glitch">POO ARCADE: Conceptos Fundamentales</h1>
             <p>PRESIONA START PARA NAVEGAR</p>
         </div>
     </header>
 
     <nav id="menu-navegacion">
-        <a href="#clases" class="menu-item pulse-effect">1. CLASES & OBJETOS</a>
-        <a href="#constructor" class="menu-item pulse-effect">2. CONSTRUCTORES</a>
-        <a href="#encapsulacion" class="menu-item pulse-effect">3. ENCAPSULACIÓN</a>
-        <a href="#herencia" class="menu-item pulse-effect">4. HERENCIA</a>
-        <a href="#polimorfismo" class="menu-item pulse-effect">5. POLIMORFISMO</a>
-        <a href="#abstractas" class="menu-item pulse-effect">6. ABSTRACCIÓN & INTERFACES</a>
-        <a href="#relaciones" class="menu-item pulse-effect">7. RELACIONES ENTRE CLASES</a>
+        <a href="#clases" class="menu-item">1. CLASES & OBJETOS</a>
+        <a href="#constructor" class="menu-item">2. CONSTRUCTORES</a>
+        <a href="#encapsulacion" class="menu-item">3. ENCAPSULACIÓN</a>
+        <a href="#herencia" class="menu-item">4. HERENCIA</a>
+        <a href="#polimorfismo" class="menu-item">5. POLIMORFISMO</a>
+        <a href="#abstractas" class="menu-item">6. ABSTRACCIÓN & INTERFACES</a>
+        <a href="#relaciones" class="menu-item">7. RELACIONES ENTRE CLASES</a>
     </nav>
 
     <main>
@@ -29,43 +29,35 @@
             <h2 class="section-title">CLASES & OBJETOS <span class="retro-icon">👾</span></h2>
             <div class="content-detail">
                 <h3>CLASE: EL BLUEPRINT</h3>
-                <p>Una **Clase** es la **plantilla lógica** o el esquema formal para la creación de un objeto. No consume memoria en tiempo de ejecución, es solo una definición. Define las características (**atributos**, variables) y los comportamientos (**métodos**, funciones) que todas las instancias de esa clase compartirán.</p>
-                <p>En el mundo real, una clase sería el *plano* de un coche. No es el coche en sí, sino las instrucciones de cómo construirlo.</p>
+                <p>Una **Clase** es la **plantilla lógica** o el esquema formal para la creación de un objeto. No consume memoria en tiempo de ejecución, es solo una definición.</p>
 
                 <h3>OBJETO: LA INSTANCIA CONCRETA</h3>
-                <p>Un **Objeto** es una **instancia concreta y tangible** de una clase. Cuando se crea un objeto, se reserva memoria para almacenar los valores específicos de sus atributos. Cada objeto puede tener valores distintos para los mismos atributos definidos en la clase.</p>
-                <p>Siguiendo la analogía, un objeto es el *coche terminado* que se construye a partir del plano, con su propio color, VIN y velocidad actual.</p>
+                <p>Un **Objeto** es una **instancia concreta y tangible** de una clase. Cuando se crea un objeto, se reserva memoria para almacenar los valores específicos de sus atributos.</p>
             </div>
             <div class="code-area">
                 <h3>CÓDIGO JAVA (<span class="code-label">PLANTILLA</span>)</h3>
                 <pre>
 public class ClaseAnimal {
-    // Atributos
     public String nombre;
     public int edad;
     
-    // Constructor
     public ClaseAnimal(String nombre, int edad) {
         this.nombre = nombre;
         this.edad = edad;
     }
     
-    // Método
     public void mostrarInfo() {
         System.out.println("El animal es: " + nombre + " y tiene " + edad + " años.");
     }
     
     public static void main(String[] args) {
-        // Creación del objeto (instancia)
         ClaseAnimal perro = new ClaseAnimal("Fido", 5);
-        
-        System.out.println("--- PRUEBA CLASES Y CONSTRUCTORES ---");
-        perro.mostrarInfo(); // Invocación del método
+        perro.mostrarInfo();
     }
 }
                 </pre>
                 <h3>CAPTURA DE PANTALLA (<span class="code-label">RUN</span>)</h3>
-                <img src="./img/Captura de pantalla (263).png" alt="Captura de Clases y Objetos" class="uploaded-screenshot">
+                <img src="./img/1.png" alt="Captura de Clases y Objetos" class="uploaded-screenshot">
                 <p class="code-description">Muestra la definición de una clase (ClaseAnimal) y la creación y uso de un objeto (perro).</p>
             </div>
         </section>
@@ -74,12 +66,11 @@ public class ClaseAnimal {
             <h2 class="section-title">CONSTRUCTORES <span class="retro-icon">🧱</span></h2>
             <div class="content-detail">
                 <h3>FUNCIÓN Y TIPOS</h3>
-                <p>Un **Constructor** es un método especial que se llama automáticamente en el momento de la **instanciación** de un objeto. Su propósito principal es **inicializar el estado** (los atributos) del nuevo objeto. Si no defines uno, Java proporciona un constructor por defecto (sin argumentos).</p>
+                <p>Un **Constructor** es un método especial que se llama automáticamente en la **instanciación** de un objeto. Su propósito es **inicializar el estado** (los atributos) del nuevo objeto.</p>
                 <ul>
-                    <li>**Constructor por Defecto (Default):** Sin parámetros. Inicializa atributos con valores predeterminados (0, null, false).</li>
-                    <li>**Constructor Parametrizado:** Acepta argumentos para inicializar los atributos con valores específicos proporcionados por el programador.</li>
+                    <li>**Constructor por Defecto:** Sin parámetros.</li>
+                    <li>**Constructor Parametrizado:** Acepta argumentos para inicializar los atributos.</li>
                 </ul>
-                <p>Los constructores llevan siempre el **mismo nombre que la clase** y no tienen tipo de retorno (ni siquiera `void`).</p>
             </div>
             <div class="code-area">
                 <h3>CÓDIGO JAVA (<span class="code-label">CONSTRUCTOR</span>)</h3>
@@ -87,22 +78,19 @@ public class ClaseAnimal {
 public class EjemploConstructor {
     String mensaje;
     
-    // Constructor parametrizado
     public EjemploConstructor(String texto) { 
-        this.mensaje = texto; // Inicializa el atributo
+        this.mensaje = texto;
         System.out.println("Constructor ejecutado: " + mensaje);
     }
     
     public static void main(String[] args) {
-        // Al crear el objeto, se llama al constructor
         EjemploConstructor obj = new EjemploConstructor("Objeto inicializado al nacer.");
-        // Output: Constructor ejecutado: Objeto inicializado al nacer.
     }
 }
                 </pre>
                 <h3>CAPTURA DE PANTALLA (<span class="code-label">RUN</span>)</h3>
-                <img src="./img/Captura de pantalla (261).png" alt="Captura de Constructores" class="uploaded-screenshot">
-                <p class="code-description">El constructor nos permite inicializar los atributos de un objeto al momento de su creación.</p>
+                <img src="./img/2.png" alt="Captura de Constructores" class="uploaded-screenshot">
+                <p class="code-description">El constructor inicializa los atributos de un objeto al momento de su creación.</p>
             </div>
         </section>
 
@@ -110,47 +98,35 @@ public class EjemploConstructor {
             <h2 class="section-title">ENCAPSULACIÓN <span class="retro-icon">🔒</span></h2>
             <div class="content-detail">
                 <h3>SEGURIDAD Y CONTROL DE ACCESO</h3>
-                <p>La **Encapsulación** es el mecanismo que consiste en **agrupar los datos** (atributos) y el **código que manipula esos datos** (métodos) en una única unidad (la clase). Su objetivo fundamental es **proteger los datos** de accesos o modificaciones no autorizadas o incorrectas.</p>
-                <p>Se logra típicamente en Java haciendo que los atributos sean **privados** (`private`) y proporcionando acceso controlado a través de métodos públicos llamados **Getters** (para leer el valor) y **Setters** (para modificar el valor, a menudo con validaciones).</p>
-                <p>Esto asegura que la clase mantiene el control total sobre cómo y cuándo se modifican sus datos internos.</p>
+                <p>La **Encapsulación** es el mecanismo que consiste en **agrupar los datos** y el **código que los manipula** en una única unidad (la clase). Su objetivo es **proteger los datos** de modificaciones incorrectas.</p>
+                <p>Se logra haciendo los atributos **privados** y usando **Getters** y **Setters** públicos.</p>
             </div>
             <div class="code-area">
                 <h3>CÓDIGO JAVA (<span class="code-label">GETTERS/SETTERS</span>)</h3>
                 <pre>
 public class Encapsulacion {
-    // Atributo privado, solo accesible desde esta clase
     private int saldoCuenta = 500;
 
-    // Getter público para leer el saldo
     public int getSaldoCuenta() {
         return saldoCuenta;
     }
 
-    // Setter público para depositar con validación
     public void depositar(int cantidad) {
         if (cantidad > 0) {
             saldoCuenta += cantidad;
-            System.out.println("Depósito exitoso. Nuevo saldo: " + saldoCuenta);
-        } else {
-            System.out.println("Error: La cantidad a depositar debe ser positiva.");
         }
     }
     
     public static void main(String[] args) {
         Encapsulacion miCaja = new Encapsulacion();
-        
-        System.out.println("--- PRUEBA ENCAPSULACIÓN ---");
-        System.out.println("Saldo inicial: " + miCaja.getSaldoCuenta()); // Acceso controlado
-        
-        miCaja.depositar(150); // Depósito válido
-        miCaja.depositar(-20); // Depósito inválido, rechazado por la lógica del setter
-        // miCaja.saldoCuenta = 10000; // Esto no se puede hacer directamente porque saldoCuenta es private
+        miCaja.depositar(150);
+        System.out.println("Nuevo saldo: " + miCaja.getSaldoCuenta());
     }
 }
                 </pre>
                 <h3>CAPTURA DE PANTALLA (<span class="code-label">RUN</span>)</h3>
-                <img src="./img/Captura de pantalla (265).png" alt="Captura de Encapsulación" class="uploaded-screenshot">
-                <p class="code-description">El atributo 'saldoCuenta' es privado y solo se modifica de forma segura a través del método 'depositar', que valida la entrada.</p>
+                <img src="./img/3.png" alt="Captura de Encapsulación" class="uploaded-screenshot">
+                <p class="code-description">El atributo 'saldoCuenta' es privado y solo se modifica de forma segura a través del método 'depositar'.</p>
             </div>
         </section>
 
@@ -158,47 +134,35 @@ public class Encapsulacion {
             <h2 class="section-title">HERENCIA <span class="retro-icon">🔗</span></h2>
             <div class="content-detail">
                 <h3>RELACIÓN "ES UN"</h3>
-                <p>La **Herencia** permite crear una nueva clase (llamada **subclase**, clase hija o derivada) basada en una clase existente (llamada **superclase**, clase padre o base). La subclase hereda automáticamente los atributos y métodos públicos y protegidos de su superclase, promoviendo la **reutilización de código**.</p>
-                <ul>
-                    <li>**Clase Padre:** Define el comportamiento general.</li>
-                    <li>**Clase Hija:** Define un comportamiento más específico y puede añadir o modificar la funcionalidad heredada.</li>
-                </ul>
-                <p>En Java, solo se permite la herencia **simple** entre clases (una clase solo puede tener una clase padre) y se utiliza la palabra clave `extends`.</p>
+                <p>La **Herencia** permite crear una **subclase** basada en una **superclase**. La subclase hereda los atributos y métodos, promoviendo la **reutilización de código**.</p>
+                <p>En Java se usa la palabra clave `extends`.</p>
             </div>
             <div class="code-area">
                 <h3>CÓDIGO JAVA (<span class="code-label">EXTENDS</span>)</h3>
                 <pre>
-// Clase Padre (Superclase)
 class Vehiculo {
     public void encenderMotor() {
-        System.out.println("Motor encendido: El vehículo está listo para partir.");
-    }
-    public void pararMotor() {
-        System.out.println("Motor apagado: El vehículo se ha detenido.");
+        System.out.println("Motor encendido.");
     }
 }
 
-// Clase Hija (Subclase) que hereda de Vehiculo
 class Coche extends Vehiculo { 
     public void acelerar() {
-        System.out.println("El coche está acelerando a toda velocidad.");
+        System.out.println("El coche está acelerando.");
     }
 }
 
 public class Herencia {
     public static void main(String[] args) {
-        Coche miCoche = new Coche(); // Se crea un objeto Coche
-        
-        System.out.println("--- PRUEBA HERENCIA ---");
-        miCoche.encenderMotor(); // Método heredado de Vehiculo
-        miCoche.acelerar();      // Método propio de Coche
-        miCoche.pararMotor();    // Método heredado de Vehiculo
+        Coche miCoche = new Coche();
+        miCoche.encenderMotor();
+        miCoche.acelerar();
     }
 }
                 </pre>
                 <h3>CAPTURA DE PANTALLA (<span class="code-label">RUN</span>)</h3>
-                <img src="./img/Captura de pantalla (264).png" alt="Captura de Herencia" class="uploaded-screenshot">
-                <p class="code-description">Muestra cómo la clase 'Coche' hereda y utiliza los métodos 'encenderMotor' y 'pararMotor' de su superclase 'Vehiculo'.</p>
+                <img src="./img/4.png" alt="Captura de Herencia" class="uploaded-screenshot">
+                <p class="code-description">Muestra cómo la clase 'Coche' hereda y utiliza los métodos de su superclase 'Vehiculo'.</p>
             </div>
         </section>
 
@@ -206,72 +170,46 @@ public class Herencia {
             <h2 class="section-title">POLIMORFISMO <span class="retro-icon">🔮</span></h2>
             <div class="content-detail">
                 <h3>"MUCHAS FORMAS"</h3>
-                <p>El **Polimorfismo** es la habilidad de que un mismo método o nombre pueda comportarse de forma diferente en diferentes contextos. Es un pilar esencial que permite manejar objetos de distintas clases de manera uniforme.</p>
+                <p>El **Polimorfismo** es la habilidad de que un mismo método pueda comportarse de forma diferente en diferentes contextos. Hay dos tipos:</p>
                 <ul>
-                    <li>**Polimorfismo en Tiempo de Compilación (Sobrecarga / Overloading):** Ocurre cuando múltiples métodos en la *misma clase* tienen el mismo nombre pero diferentes **parámetros** (diferente número o tipo de argumentos).</li>
-                    <li>**Polimorfismo en Tiempo de Ejecución (Sobrescritura / Overriding):** Ocurre cuando una subclase proporciona una implementación específica para un método que ya está definido en su superclase. Esto está directamente relacionado con la herencia.</li>
+                    <li>**Sobrecarga (Overloading):** Múltiples métodos en la misma clase con el mismo nombre pero diferentes **parámetros**.</li>
+                    <li>**Sobrescritura (Overriding):** La subclase proporciona una implementación específica para un método de la superclase.</li>
                 </ul>
             </div>
             <div class="code-area">
                 <h3>CÓDIGO JAVA (<span class="code-label">SOBRECARGA/SOBRESCRITURA</span>)</h3>
                 <pre>
-// Clase base para sobrescritura
 class Figura {
     public void dibujar() {
         System.out.println("Dibujando una figura genérica.");
     }
 }
 
-// Clase derivada que sobrescribe el método dibujar
 class Circulo extends Figura {
-    @Override // Anotación opcional, pero buena práctica
+    @Override
     public void dibujar() {
         System.out.println("Dibujando un Círculo específico.");
     }
 }
 
-// Clase para sobrecarga de métodos
 class Calculadora {
-    public int sumar(int a, int b) { // Método sumar con dos enteros
-        return a + b;
-    }
-    
-    public double sumar(double a, double b) { // Método sumar con dos doubles (sobrecarga)
-        return a + b;
-    }
-    
-    public int sumar(int a, int b, int c) { // Método sumar con tres enteros (sobrecarga)
-        return a + b + c;
-    }
+    public int sumar(int a, int b) { return a + b; }
+    public double sumar(double a, double b) { return a + b; }
 }
 
 public class Polimorfismo {
     public static void main(String[] args) {
-        System.out.println("--- PRUEBA POLIMORFISMO ---");
-
-        // Sobrescritura (Overriding)
-        Figura miFigura = new Figura();
-        miFigura.dibujar(); // Output: Dibujando una figura genérica.
-
         Circulo miCirculo = new Circulo();
-        miCirculo.dibujar(); // Output: Dibujando un Círculo específico.
-
-        // Demostración de polimorfismo en tiempo de ejecución
-        Figura otraFigura = new Circulo(); // Referencia de tipo Figura, objeto de tipo Circulo
-        otraFigura.dibujar(); // Output: Dibujando un Círculo específico. (Se invoca el método del objeto real)
-
-        System.out.println("\n--- SOBRECARGA DE MÉTODOS ---");
-        // Sobrecarga (Overloading)
+        miCirculo.dibujar();
+        
         Calculadora calc = new Calculadora();
-        System.out.println("Suma de 2 enteros: " + calc.sumar(5, 10));        // Llama a sumar(int, int)
-        System.out.println("Suma de 2 doubles: " + calc.sumar(5.5, 10.5));    // Llama a sumar(double, double)
-        System.out.println("Suma de 3 enteros: " + calc.sumar(1, 2, 3));      // Llama a sumar(int, int, int)
+        System.out.println("Suma de 2 enteros: " + calc.sumar(5, 10));
     }
 }
                 </pre>
                 <h3>CAPTURA DE PANTALLA (<span class="code-label">RUN</span>)</h3>
-                <img src="./img/Captura de pantalla (266).png" alt="Captura de Polimorfismo" class="uploaded-screenshot">
-                <p class="code-description">Demuestra la sobrescritura de métodos (diferentes comportamientos para un mismo método en una jerarquía) y la sobrecarga (múltiples métodos con el mismo nombre pero diferentes parámetros).</p>
+                <img src="./img/5.png" alt="Captura de Polimorfismo" class="uploaded-screenshot">
+                <p class="code-description">Demuestra la sobrescritura de métodos y la sobrecarga.</p>
             </div>
         </section>
 
@@ -279,43 +217,28 @@ public class Polimorfismo {
             <h2 class="section-title">ABSTRACCIÓN & INTERFACES <span class="retro-icon">⚙️</span></h2>
             <div class="content-detail">
                 <h3>CLASES ABSTRACTAS</h3>
-                <p>Una **Clase Abstracta** no puede ser instanciada directamente (no se pueden crear objetos de ella) y puede contener métodos abstractos (sin implementación). Obliga a las clases hijas a proporcionar una implementación concreta para esos métodos abstractos. Se declara con la palabra clave `abstract`.</p>
-                <p>Son útiles para definir una plantilla general o un contrato para un conjunto de clases relacionadas, donde algunas partes aún no están completamente definidas.</p>
+                <p>Una **Clase Abstracta** no se puede instanciar, obliga a las clases hijas a implementar sus métodos abstractos. Define una plantilla general.</p>
                 
                 <h3>INTERFACES</h3>
-                <p>Una **Interfaz** define un contrato completamente abstracto: solo contiene declaraciones de métodos (sin cuerpo) y constantes. Una clase que implementa (`implements`) una interfaz está obligada a proporcionar una implementación para todos los métodos declarados en ella.</p>
-                <p>A diferencia de las clases abstractas, una clase puede implementar múltiples interfaces, lo que permite lograr una forma de "herencia múltiple de comportamiento".</p>
+                <p>Una **Interfaz** define un contrato completamente abstracto (solo declaraciones de métodos). Una clase puede implementar múltiples interfaces (`implements`), logrando "herencia múltiple de comportamiento".</p>
             </div>
             <div class="code-area">
                 <h3>CÓDIGO JAVA (<span class="code-label">ABSTRACT/IMPLEMENTS</span>)</h3>
                 <pre>
-// Interfaz: Define un contrato de comportamiento
 interface Dibujable {
-    void dibujar(); // Método abstracto por defecto en una interfaz
+    void dibujar();
 }
 
-// Clase Abstracta: No se puede instanciar directamente, puede tener métodos abstractos y concretos
 abstract class Forma {
-    // Método abstracto: debe ser implementado por las subclases concretas
     public abstract double calcularArea(); 
-    
-    // Método concreto: tiene una implementación por defecto
-    public void mostrarMensaje() {
-        System.out.println("Esta es una forma geométrica.");
-    }
 }
 
-// Clase Concreta: Extiende la clase abstracta e implementa la interfaz
 class Cuadrado extends Forma implements Dibujable {
     private double lado = 4.0;
     
-    // Implementación del método abstracto de Forma
     @Override
-    public double calcularArea() {
-        return lado * lado;
-    }
+    public double calcularArea() { return lado * lado; }
 
-    // Implementación del método abstracto de Dibujable
     @Override
     public void dibujar() {
         System.out.println("Dibujando un cuadrado con lado " + lado);
@@ -324,65 +247,35 @@ class Cuadrado extends Forma implements Dibujable {
 
 public class Abstraccion {
     public static void main(String[] args) {
-        System.out.println("--- PRUEBA ABSTRACCIÓN / INTERFACES ---");
-
-        // No se puede instanciar directamente:
-        // Forma miForma = new Forma(); // Esto daría un error de compilación
-        
-        // Se instancia la clase concreta
         Cuadrado miCuadrado = new Cuadrado();
-        
-        // Métodos heredados/implementados
-        miCuadrado.mostrarMensaje();    // Método concreto de la clase abstracta
-        miCuadrado.dibujar();           // Método implementado de la interfaz
-        System.out.println("Área calculada: " + miCuadrado.calcularArea()); // Método abstracto implementado
+        miCuadrado.dibujar();
+        System.out.println("Área: " + miCuadrado.calcularArea());
     }
 }
                 </pre>
                 <h3>CAPTURA DE PANTALLA (<span class="code-label">RUN</span>)</h3>
-                <img src="./img/Captura de pantalla (269).png" alt="Captura de Abstracción e Interfaces" class="uploaded-screenshot">
-                <p class="code-description">Muestra cómo la clase 'Cuadrado' implementa el contrato de 'Dibujable' y los métodos abstractos de 'Forma', demostrando la abstracción.</p>
+                <img src="./img/6.png" alt="Captura de Abstracción e Interfaces" class="uploaded-screenshot">
+                <p class="code-description">Muestra cómo la clase 'Cuadrado' implementa el contrato de 'Dibujable' y los métodos abstractos de 'Forma'.</p>
             </div>
         </section>
 
         <section id="relaciones" class="topic-box">
-            <h2 class="section-title glitch" data-text="RELACIONES ENTRE CLASES">RELACIONES ENTRE CLASES <span class="retro-icon">🤝</span></h2>
+            <h2 class="section-title">RELACIONES ENTRE CLASES <span class="retro-icon">🤝</span></h2>
             
             <div class="content-detail">
-                <p>En la programación orientada a objetos (POO), estas relaciones definen cómo las clases interactúan entre sí. Son cruciales en el diseño UML.</p>
+                <p>Definen cómo las clases interactúan entre sí. Son cruciales en el diseño UML.</p>
 
                 <h3>ASOCIACIÓN (USA-UN)</h3>
-                <p>Es la relación más general y menos estricta. Representa que dos clases **están conectadas** y pueden comunicarse, pero no implica la relación estricta de "todo-parte". Los objetos asociados existen **independientemente**.</p>
-                <ul>
-                    <li>**Ejemplo:** Un `Profesor` y un `Estudiante`. Ambos existen de forma independiente, pero están relacionados a través de una asignatura o curso.</li>
-                    <li>**Símbolo UML:** Una simple **línea recta** entre las dos clases, a veces con flechas para indicar dirección o roles.</li>
-                </ul>
+                <p>Relación general donde dos clases **están conectadas** y sus objetos existen **independientemente**.</p>
                 <div class="code-area">
                     <h3>CÓDIGO JAVA (<span class="code-label">ASOCIACIÓN</span>)</h3>
                     <pre>
-class Profesor {
-    public String nombre;
-    
-    public Profesor(String nombre) {
-        this.nombre = nombre;
-    }
-    
-    public void enseñar(String curso) {
-        System.out.println(nombre + " está enseñando el curso: " + curso);
-    }
-}
+class Profesor { public String nombre; }
 
 class Estudiante {
     public String nombre;
-    
-    public Estudiante(String nombre) {
-        this.nombre = nombre;
-    }
-    
-    // Asociación: Estudiante 'usa' o 'conoce' a un Profesor
     public void estudiarCon(Profesor p) { 
-        System.out.println(nombre + " está tomando clases con el Profesor " + p.nombre + ".");
-        p.enseñar("Programación Avanzada"); // El estudiante interactúa con el profesor
+        System.out.println(nombre + " está con " + p.nombre + ".");
     }
 }
 
@@ -390,149 +283,64 @@ public class Asociacion {
     public static void main(String[] args) {
         Profesor prof = new Profesor("Dr. García");
         Estudiante est = new Estudiante("Ana");
-        
-        System.out.println("--- PRUEBA ASOCIACIÓN ---");
-        est.estudiarCon(prof); // El estudiante interactúa con el profesor
-        
-        // Ambos, profesor y estudiante, pueden existir de forma independiente
-        Profesor otroProfesor = new Profesor("Mtra. Laura"); 
-        // El Dr. García y Ana siguen existiendo, la Mtra. Laura es un objeto independiente
+        est.estudiarCon(prof);
     }
 }
                     </pre>
                     <h3>CAPTURA DE PANTALLA (<span class="code-label">RUN</span>)</h3>
-                    <img src="./img/Captura de pantalla (267).png" alt="Captura de Asociación" class="uploaded-screenshot">
-                    <p class="code-description">Muestra cómo un objeto 'Estudiante' interactúa con un objeto 'Profesor', que existen de forma separada y con su propio ciclo de vida.</p>
+                    <img src="./img/7.png" alt="Captura de Asociación" class="uploaded-screenshot">
+                    <p class="code-description">Un objeto 'Estudiante' interactúa con un objeto 'Profesor', que existen de forma separada.</p>
                 </div>
 
                 <h3>AGREGACIÓN (HA-UN)</h3>
-                <p>Es una forma de asociación que representa una relación de "**todo-parte**" donde las partes (los objetos agregados) pueden existir **independientemente** del todo (el objeto contenedor). Es una relación **débil**.</p>
-                <ul>
-                    <li>**Ejemplo:** Un `Coche` (Todo) y sus `Ruedas` (Parte). Si el coche se destruye, las ruedas siguen existiendo y pueden reutilizarse en otro coche.</li>
-                    <li>**Símbolo UML:** Una línea recta con un **rombo vacío** en el lado del "Todo" (el objeto contenedor).</li>
-                </ul>
+                <p>Relación de "**todo-parte**" **débil**. Las partes pueden existir **independientemente** del todo.</p>
                 <div class="code-area">
                     <h3>CÓDIGO JAVA (<span class="code-label">AGREGACIÓN</span>)</h3>
                     <pre>
-import java.util.ArrayList;
-import java.util.List;
-
-// Clase Parte (puede existir sola)
-class Rueda {
-    public String id;
-    public Rueda(String id) {
-        this.id = id;
-        System.out.println("Rueda " + id + " fabricada.");
-    }
-}
-
-// Clase Todo (contiene objetos Rueda)
+class Rueda { public String id; }
 class CocheAgregacion {
-    private List&lt;Rueda&gt; ruedas; // Agregación: El Coche "tiene" Ruedas
-    public String modelo;
-    
-    public CocheAgregacion(String modelo) {
-        this.modelo = modelo;
-        this.ruedas = new ArrayList&lt;&gt;(); // Inicializa la lista de ruedas
-        System.out.println("Coche modelo " + modelo + " ensamblado (sin ruedas aún).");
-    }
-    
-    // Método para agregar ruedas que ya existen (inyección externa)
-    public void agregarRueda(Rueda r) {
-        ruedas.add(r);
-        System.out.println("Rueda " + r.id + " agregada al " + this.modelo + ".");
-    }
-    
-    public void mostrarInfo() {
-        System.out.println("\nEstado del Coche " + modelo + ": " + ruedas.size() + " ruedas.");
-    }
+    private List&lt;Rueda&gt; ruedas; 
+    public void agregarRueda(Rueda r) { ruedas.add(r); }
 }
 
 public class Agregacion {
     public static void main(String[] args) {
-        System.out.println("--- PRUEBA AGREGACIÓN ---");
-
-        // Las Ruedas existen independientemente del Coche
-        Rueda r1 = new Rueda("RuedaDelanteraIzquierda");
-        Rueda r2 = new Rueda("RuedaDelanteraDerecha"); 
-        
-        CocheAgregacion miCoche = new CocheAgregacion("Sedan Deportivo");
-        miCoche.agregarRueda(r1); // Se agregan las ruedas al coche
-        miCoche.agregarRueda(r2);
-        
-        miCoche.mostrarInfo();
-        
-        // Si 'miCoche' deja de existir, 'r1' y 'r2' seguirían existiendo en memoria.
-        // Se podrían añadir a otro coche, por ejemplo.
-        // CocheAgregacion otroCoche = new CocheAgregacion("Familiar");
-        // otroCoche.agregarRueda(r1); // Reutilizando la rueda
+        Rueda r1 = new Rueda("R1");
+        CocheAgregacion miCoche = new CocheAgregacion();
+        miCoche.agregarRueda(r1);
     }
 }
                     </pre>
                     <h3>CAPTURA DE PANTALLA (<span class="code-label">RUN</span>)</h3>
-                    <img src="./img/Captura de pantalla (260).png" alt="Captura de Agregación" class="uploaded-screenshot">
-                    <p class="code-description">Muestra cómo los objetos 'Rueda' se crean de forma independiente y luego se asocian a un objeto 'CocheAgregacion', destacando su existencia separada.</p>
+                    <img src="./img/8.png" alt="Captura de Agregación" class="uploaded-screenshot">
+                    <p class="code-description">Objetos 'Rueda' se crean de forma independiente y se asocian a un objeto 'CocheAgregacion'.</p>
                 </div>
 
                 <h3>COMPOSICIÓN (PARTE-DE)</h3>
-                <p>Es una forma de agregación más fuerte, donde las partes (los objetos compuestos) **no pueden existir sin el todo** (el objeto contenedor). Si el objeto contenedor se destruye, las partes también se destruyen. Es una relación **fuerte**.</p>
-                <ul>
-                    <li>**Ejemplo:** Una `Casa` (Todo) y sus `Habitaciones` (Parte). Si la casa se destruye, las habitaciones dejan de existir como tales. El ciclo de vida es el mismo.</li>
-                    <li>**Símbolo UML:** Una línea recta con un **rombo relleno** en el lado del "Todo" (el objeto contenedor).</li>
-                </ul>
+                <p>Relación de "**todo-parte**" **fuerte**. Las partes **no pueden existir sin el todo** (mismo ciclo de vida).</p>
                 <div class="code-area">
                     <h3>CÓDIGO JAVA (<span class="code-label">COMPOSICIÓN</span>)</h3>
                     <pre>
-// Clase Parte (no puede existir sola)
-class Motor {
-    public String tipo;
-    
-    public Motor(String tipo) {
-        this.tipo = tipo;
-        System.out.println("Motor " + tipo + " creado internamente.");
-    }
-    
-    public void arrancar() {
-        System.out.println("El motor " + tipo + " ha arrancado.");
-    }
-}
+class Motor { public void arrancar() { System.out.println("Motor arrancado."); } }
 
-// Clase Todo (compone un Motor)
 class AutomovilComposicion {
-    private Motor motor; // Composición: El Automóvil "posee" y crea su Motor
-    public String modelo;
-    
-    public AutomovilComposicion(String modelo, String tipoMotor) {
-        this.modelo = modelo;
-        // Composición: El motor nace con el automóvil y su ciclo de vida está ligado a él
-        this.motor = new Motor(tipoMotor); 
-        System.out.println("Automóvil modelo " + modelo + " fabricado con su motor.");
+    private Motor motor;
+    public AutomovilComposicion() {
+        this.motor = new Motor();
     }
-    
-    public void iniciar() {
-        System.out.println("\nAutomóvil modelo " + modelo + " iniciando...");
-        motor.arrancar();
-    }
-    
-    // Al destruir el Automovil, el Motor también sería destruido (en Java, por el GC)
+    public void iniciar() { motor.arrancar(); }
 }
 
 public class Composicion {
     public static void main(String[] args) {
-        System.out.println("--- PRUEBA COMPOSICIÓN ---");
-
-        AutomovilComposicion miAuto = new AutomovilComposicion("SUV Explorer", "V6 Turbo");
+        AutomovilComposicion miAuto = new AutomovilComposicion();
         miAuto.iniciar();
-        
-        // Si 'miAuto' se convierte en null (o sale de ámbito), 
-        // el objeto 'motor' al que hace referencia también será candidato a ser recolectado
-        // por el recolector de basura, ya que no tiene vida independiente fuera del 'miAuto'.
     }
 }
                     </pre>
                     <h3>CAPTURA DE PANTALLA (<span class="code-label">RUN</span>)</h3>
-                    <img src="./img/Captura de pantalla (268).png" alt="Captura de Composición" class="uploaded-screenshot">
-                    <p class="code-description">Muestra cómo el objeto 'Motor' se crea directamente dentro del constructor de 'AutomovilComposicion', evidenciando que su existencia depende del 'AutomovilComposicion'.</p>
+                    <img src="./img/9.png" alt="Captura de Composición" class="uploaded-screenshot">
+                    <p class="code-description">El objeto 'Motor' se crea dentro del constructor de 'AutomovilComposicion', evidenciando que su existencia depende de él.</p>
                 </div>
             </div>
         </section>
@@ -541,9 +349,6 @@ public class Composicion {
     
     <footer class="monitor-border">
         <p>MISSION COMPLETE | Gracias</p>
-        <button onclick="cambiarFondo()">Modo Oscuro</button>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
